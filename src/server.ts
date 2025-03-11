@@ -1,10 +1,12 @@
 import express from "express";
-import { AppDataSource } from "./data-source";
+import AppDataSource  from "./data-source";
 
 const app = express();
 app.use(express.json());
 
-AppDataSource.initialize() 
+const dataSource = AppDataSource.getInstance();
+
+dataSource.initialize() 
   .then(() => {
     console.log("Banco de dados conectado!");
     app.listen(3000, () => console.log("Servidor rodando na porta 3000"));
