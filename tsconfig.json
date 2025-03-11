@@ -8,6 +8,13 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
-    "strictPropertyInitialization": false
-  }
+    "strictPropertyInitialization": false,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "baseUrl": "./src",
+    "paths": {
+      "*": ["node_modules/*"]
+    }
+  },
+  "include": ["src/**/*.ts"]
 }
