@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx ts-node-dev --respawn --ignore-watch node_modules src/server.ts"
+    "dev": "npx ts-node-dev --respawn --ignore-watch node_modules src/server.ts",
+    "migration:generate": "npx ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:generate src/migrations/InitialMigration -d src/data-source.ts",
+    "migration:create": "npx ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:create src/migrations/InitialMigration"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +18,7 @@
     "express": "^4.21.2",
     "pg": "^8.13.3",
     "reflect-metadata": "^0.2.2",
+    "tsconfig-paths": "^4.2.0",
     "typeorm": "^0.3.21"
   },
   "devDependencies": {

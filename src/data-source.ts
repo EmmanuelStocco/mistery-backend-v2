@@ -7,8 +7,7 @@ dotenv.config();
 class AppDataSource {
   private static instance: DataSource;
 
-  private constructor() { //construtor privado impede que a classe AppDataSource seja instanciada diretamente de fora da própria classe
-  }
+  private constructor() {}
 
   public static getInstance(): DataSource {
     if (!AppDataSource.instance) {
@@ -19,7 +18,7 @@ class AppDataSource {
         username: process.env.DB_USER || "postgres",
         password: process.env.DB_PASS || "postgres",
         database: process.env.DB_NAME || "mistérios",
-        synchronize: true,
+        synchronize: false,
         logging: false,
         entities: ["src/entities/*.ts"],
         migrations: ["src/migrations/*.ts"],
@@ -29,5 +28,5 @@ class AppDataSource {
     return AppDataSource.instance;
   }
 }
-
-export default AppDataSource;
+ 
+export const AppDataSourceInstance = AppDataSource.getInstance();
